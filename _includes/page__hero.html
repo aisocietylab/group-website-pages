@@ -30,6 +30,11 @@
           {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
         {% endif %}
       </h1>
+      <!-- EDIT: added subtitle -->
+      <h2 id="page-subtitle" class="page__subtitle">
+        {{ page.subtitle | markdownify | remove: "<p>" | remove: "</p>" }}
+      </h2>
+      <!-- END EDIT -->
       {% if page.tagline %}
         <p class="page__lead">{{ page.tagline | markdownify | remove: "<p>" | remove: "</p>" }}</p>
       {% elsif page.header.show_overlay_excerpt != false and page.excerpt %}

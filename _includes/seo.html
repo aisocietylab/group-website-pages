@@ -38,6 +38,11 @@
 <title>{{ seo_title }}{% if paginator %}{% unless paginator.page == 1 %} {{ title_separator }} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}{% endif %}</title>
 <meta name="description" content="{{ seo_description }}">
 
+<!--EDIT: added keywords-->
+{% if page.keywords %}
+  <meta name="keywords" content="{{ page.keywords }}">
+{% endif %}
+
 {% if author.name %}
   <meta name="author" content="{{ author.name | default: author }}">
   {% if og_type == "article" %}
@@ -131,4 +136,9 @@
 {% if site.baidu_site_verification %}
   <meta name="baidu-site-verification" content="{{ site.baidu_site_verification }}">
 {% endif %}
+
+<!-- EDIT: more meta tags -->
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+<!-- EIDT END-->
 <!-- end _includes/seo.html -->

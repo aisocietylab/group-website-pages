@@ -1,4 +1,7 @@
-# [Minimal Mistakes Jekyll theme](https://mmistakes.github.io/minimal-mistakes/)
+# Custom Minimal Mistakes Jekyll theme
+
+> [!IMPORTANT]
+> This repository is an edited fork of the original [Minimal Mistakes repository](https://mmistakes.github.io/minimal-mistakes/). Specifically, we added a `Workshop` and `Project` layout for research workshops and projects/papers. The project page is copied from [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template), and edited to fit within the Minimal Mistakes theme.
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/mmistakes/minimal-mistakes/master/LICENSE)
 [![Jekyll](https://img.shields.io/badge/jekyll-%3E%3D%203.7-blue.svg)](https://jekyllrb.com/)

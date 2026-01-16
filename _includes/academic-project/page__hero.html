@@ -1,0 +1,87 @@
+<!--{% assign authors = ... | page.project.author | default: page.authors[0] | default: site.author %}-->
+
+<section class="hero">
+<!-- <div class="page__hero"> -->
+<div class="hero-body">
+    <div class="container is-max-desktop">
+    <div class="columns is-centered">
+        <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">{{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
+            <h1 id="page-title" class="">{{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>
+            <!-- Authors -->
+            <div class="is-size-5 publication-authors">
+                {% for a in site.project.authors %}
+                    <span class="author-block">
+                    <a href="{{ a.url }}" target="_blank">{{ a.name }}</a></span>
+                {% endfor %}
+            </div>
+
+            <!-- Institution -->
+            <div class="is-size-5 publication-authors">
+            <span class="author-block">{{ site.project.institution }}<br>{{ site.project.conference }}</span>
+            <!-- TODO: add equal contribution if necessary
+            <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+            </div>
+
+            {% unless site.project.paper_url == null or site.project.paper_url == "" %}
+                <div class="column has-text-centered">
+                <div class="publication-links">
+                    <span class="link-block">
+                    <a href="{{ site.project.paper_url }}" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                    </a>
+                </span>
+            {% endunless %}
+
+            {% unless site.project.supplementary_url == null or site.project.supplementary_url == "" %}
+                <!--Add your supplementary material PDF -->
+                <span class="link-block">
+                    <a href="{{ site.project.supplementary_url }}" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Supplementary</span>
+                </a>
+                </span>
+            {% endunless %}
+
+            {% unless site.project.github_url == null or site.project.github_url == "" %}
+                <!-- Add GitHub repository URL -->
+                <span class="link-block">
+                <a href="{{ site.project.github_url }}" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+                </a>
+                </span>
+            {% endunless %}
+
+            <!-- Add arXiv paper -->
+            {% unless site.project.arxiv_url == null or site.project.arxiv_url == "" %}
+                <span class="link-block">
+                    <a href="{{ site.project.arxiv_url }}" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                </a>
+                </span>
+            {% endunless %}
+
+            <!-- TODO: proceedings URL -->
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+<!-- </div> -->
