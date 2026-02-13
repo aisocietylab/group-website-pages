@@ -2,7 +2,7 @@
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
 
 {% assign navigation = site.data.navigation.main %}
-{% assign lab_name = site.project.institution | default: site.title | default: "Our Lab" %}
+{% assign lab_name = page.project.institution | default: site.project.institution | default: site.title | default: "Our Lab" %}
 
 <div class="more-works-container">
   <button class="more-works-btn btn btn--inverse" onclick="toggleMoreWorks()" title="View More Works from {{ lab_name }}">
