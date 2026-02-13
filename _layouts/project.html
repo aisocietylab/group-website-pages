@@ -1,229 +1,62 @@
 ---
-layout: default
 ---
-<!-- TODO: provide project information either in `_config.yml` or above with layout. -->
 <!-- Copied from https://raw.githubusercontent.com/eliahuhorwitz/Academic-project-page-template/refs/heads/master/index.html -->
 
-<!-- {% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
-{% endif %} -->
+<!doctype html>
+{% include copyright.html %}
+<html lang="{{ site.locale | replace: " _", "-" | default: "en" }}" class="no-js">
 
-<!-- Scroll to Top Button -->
-<button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-<i class="fas fa-chevron-up"></i>
-</button>
+<head>
+    {% include head.html %}
+    {% include head/custom.html %}
+</head>
 
-<!-- More Works Dropdown -->
-<div class="more-works-container">
-<button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-    <i class="fas fa-flask"></i>
-    More Works
-    <i class="fas fa-chevron-down dropdown-arrow"></i>
-</button>
-<div class="more-works-dropdown" id="moreWorksDropdown">
-    <div class="dropdown-header">
-    <h4>More Works from Our Lab</h4>
-    <button class="close-btn" onclick="toggleMoreWorks()">
-        <i class="fas fa-times"></i>
-    </button>
-    </div>
-    <div class="works-list">
-    <!-- TODO: Replace with your lab's related works -->
-    <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-        <div class="work-info">
-        <!-- TODO: Replace with actual paper title -->
-        <h5>Paper Title 1</h5>
-        <!-- TODO: Replace with brief description -->
-        <p>Brief description of the work and its main contribution.</p>
-        <!-- TODO: Replace with venue and year -->
-        <span class="work-venue">Conference/Journal 2024</span>
-        </div>
-        <i class="fas fa-external-link-alt"></i>
-    </a>
-    <!-- TODO: Add more related works or remove extra items -->
-    <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-        <div class="work-info">
-        <h5>Paper Title 2</h5>
-        <p>Brief description of the work and its main contribution.</p>
-        <span class="work-venue">Conference/Journal 2023</span>
-        </div>
-        <i class="fas fa-external-link-alt"></i>
-    </a>
-    <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-        <div class="work-info">
-        <h5>Paper Title 3</h5>
-        <p>Brief description of the work and its main contribution.</p>
-        <span class="work-venue">Conference/Journal 2023</span>
-        </div>
-        <i class="fas fa-external-link-alt"></i>
-    </a>
-    </div>
-</div>
-</div>
+<body
+    class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}"
+    dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}">
+    {% include_cached skip-links.html %}
+    {% include_cached more_works.html %}
 
-{% include academic-project/page__hero.html %}
+    <div class="initial-content">
+        <!-- Scroll to Top Button -->
+        <button class="scroll-to-top btn" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
 
-<!-- <div id="main" role="main"> -->
-<main id="main-content">
-    {% if page.project.teaser_video %}
-    <!-- Teaser video-->
-    <section class="hero teaser">
-    <div class="container is-max-desktop">
-    <div class="hero-body">
-        <!-- TODO: Replace with your teaser video -->
-        <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-        </video>
-        <!-- TODO: Replace with your video description -->
-        <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-        </h2>
+        {% include academic-project/page__hero.html %}
+
+        <main id="main-content">
+            {% include academic-project/teaser.html %}
+            {% include academic-project/abstract.html %}
+
+            <div id="main" role="main">
+            {{ content }}
+            </div>
+        </main>
+
+        {% include after-content.html %}
+        {% include academic-project/bibtex.html %}
     </div>
+
+    {% if site.search == true %}
+    <div class="search-content">
+        {% include_cached search/search_form.html %}
     </div>
-    </section>
-    <!-- End teaser video -->
     {% endif %}
 
-    {% unless site.project.abstract == null or site.project.abstract == "" %}
-    <!-- Paper abstract -->
-    <section class="section hero is-light">
-    <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-            <p>
-            {{ site.project.abstract }}
+    <div id="footer" class="page__footer">
+        <footer>
+            {% include footer/custom.html %}
+            <p class="container">
+                This page was built on top of <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                    target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                    href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             </p>
-        </div>
-        </div>
+            {% include_cached footer.html %}
+        </footer>
     </div>
-    </div>
-    </section>
-    <!-- End paper abstract -->
-    {% endunless %}
 
+    {% include scripts.html %}
+</body>
 
-    {% unless site.project.images == null or site.project.images == empty %}
-    <!-- Image carousel -->
-    <section class="hero is-small">
-    <div class="hero-body">
-    <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-        {% for img in site.project.images %}
-                <div class="item">
-                <img src="{{ img.url }}" alt="{{ img.alt }}" loading="lazy"/>
-                <h2 class="subtitle has-text-centered">
-                    {{ img.caption }}
-                </h2>
-                </div>
-        {% endfor %}
-        </div>
-    </div>
-    </div>
-    </section>
-    <!-- End image carousel -->
-    {% endunless %}
-
-
-
-    {% unless site.project.video_id == null or site.project.video_id == "" %}
-    <!-- Youtube video -->
-    <section class="hero is-small is-light">
-    <div class="hero-body">
-    <div class="container">
-        <!-- Paper video. -->
-        <h2 class="title is-3">Video Presentation</h2>
-        <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-            
-            <div class="publication-video">
-            <iframe src="https://www.youtube.com/embed/{{ site.project.video_id }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-        </div>
-        </div>
-    </div>
-    </div>
-    </section>
-    <!-- End youtube video -->
-    {% endunless %}
-
-
-    {% unless site.project.video_carousel == null or site.project.video_carousel == empty %}
-    <!-- Video carousel -->
-    <section class="hero is-small">
-    <div class="hero-body">
-    <div class="container">
-        <h2 class="title is-3">Video Carousel</h2>
-        <div id="results-carousel" class="carousel results-carousel">
-        {% for vid in site.project.video_carousel %}
-            <div class="item item-video">
-                <!-- TODO: Add poster image for better preview -->
-                <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-                <!-- Your video file here -->
-                <source src="{{ vid.url }}" type="video/mp4">
-                </video>
-            </div>
-        {% endfor %}
-    </div>
-    </div>
-    </section>
-    <!-- End video carousel -->
-    {% endunless %}
-
-    {% unless site.project.poster == null or site.project.poster == "" %}
-    <!-- Paper poster -->
-    <section class="hero is-small is-light">
-    <div class="hero-body">
-    <div class="container">
-        <h2 class="title">Poster</h2>
-
-        <iframe  src="{{ site.project.poster }}" width="100%" height="550">
-            </iframe>
-        
-        </div>
-    </div>
-    </section>
-    <!--End paper poster -->
-    {% endunless %}
-
-    {% unless site.project.bibtex == null or site.project.bibtex == "" %}
-    <!--BibTex citation -->
-    <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-        <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-            <i class="fas fa-copy"></i>
-            <span class="copy-text">Copy</span>
-        </button>
-        </div>
-        <pre id="bibtex-code"><code>{{ site.project.bibtex }}</code></pre>
-    </div>
-    </section>
-    <!--End BibTex citation -->
-    {% endunless %}
-
-
-<!-- </div> -->
-
-</main>
-
-<footer class="footer">
-<div class="container">
-<div class="columns is-centered">
-    <div class="column is-8">
-    <div class="content">
-
-        <p>
-        This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-        You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-        Commons Attribution-ShareAlike 4.0 International License</a>.
-        </p>
-
-    </div>
-    </div>
-</div>
-</div>
-</footer>
+</html>

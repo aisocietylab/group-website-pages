@@ -1,0 +1,14 @@
+{% assign abstract = page.project.abstract | default: site.project.abstract %}
+
+{% unless abstract == null or abstract == "" %}
+<!-- Paper abstract -->
+<section class="abstract">
+    <div class="container">
+        <h1 class="title">Abstract</h1>
+            <p>
+                {{ abstract }}
+            </p>
+    </div>
+</section>
+<!-- End paper abstract -->
+{% endunless %}

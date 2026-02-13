@@ -1,0 +1,39 @@
+{% assign teaser = page.project.teaser | default: site.project.teaser %}
+
+{% unless teaser.image == null or teaser.image == "" %}
+<!-- Teaser image -->
+<section class="container teaser">
+  <figure class="">
+    {% if teaser.url %}
+    <a href="{{ teaser.url | relative_url }}" target="_blank">
+      <img src="{{ teaser.image | relative_url }}" alt="{{ teaser.alt_text }}">
+    </a>
+    {% else %}
+    <img src="{{ teaser.image | relative_url }}" alt="{{ teaser.alt_text }}">
+    {% endif %}
+    {% if teaser.caption %}
+    <figcaption>{{ teaser.caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
+    {% endif %}
+  </figure>
+</section>
+<!-- End teaser image -->
+{% endunless %}
+
+<!-- Teaser video
+{% if page.project.teaser_video %}
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
+                <source src="static/videos/banner_video.mp4" type="video/mp4">
+            </video>
+            <h2 class="subtitle has-text-centered">
+                Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel
+                lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat
+                hendrerit nisl ut maximus.
+            </h2>
+        </div>
+    </div>
+</section>
+{% endif %}
+ End teaser video -->

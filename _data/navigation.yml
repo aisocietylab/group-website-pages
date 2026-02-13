@@ -2,11 +2,7 @@
 main:
   - title: "Research Group"
     url: https://aisocietylab.github.io
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  #- title: "Example Paper 1"
+  #  url: https://aisocietylab.github.io
+  #  description: Brief description of the work
+  #  venue: Conference/Journal Year

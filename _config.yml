@@ -12,18 +12,18 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" # "air" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "Site Title"
+title                    : "Some Project"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Your Name"
 description              : "An amazing website."
 url                      : "https://aisocietylab.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "aisocietylab/workshop-page" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
@@ -139,6 +139,7 @@ author:
       # url: "https://instagram.com/"
 
 project:
+  # redefine at top of markdown files (pages)
   authors:
     - name: "First Author"
       url: "first-author-personal-link"
@@ -146,12 +147,21 @@ project:
       url: "second-author-personal-link"
     - name: "Third Author"
       url: "third-author-personal-link"
-  institution: "Institution"
+  institution: "AI for Society Lab"
   conference: "Conference'Year"
-  paper_url: "https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf"
-  github_url: "https://github.com/aisocietylab"
-  arxiv_url: "https://arxiv.org/abs/<ARXIV PAPER ID>"
-  supplementary_url:
+
+  # for icons checkout fontawesome and/or https://jpswalsh.github.io/academicons/
+  links:
+    - label: Paper
+      icon: fas fa-file-pdf
+      url: "https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf"
+    - label: Code
+      icon: fab fa-github
+      url: "https://github.com/aisocietylab/<CODE REPO>"
+    - label: arXiv
+      icon: ai ai-arxiv
+      url: "https://arxiv.org/abs/<ARXIV PAPER ID>"
+
 
   abstract: "TODO: add abstract"
   bibtex: |

@@ -1,0 +1,35 @@
+<!-- Begin More Works -->
+{% capture logo_path %}{{ site.logo }}{% endcapture %}
+
+{% assign navigation = site.data.navigation.main %}
+{% assign lab_name = site.project.institution | default: site.title | default: "Our Lab" %}
+
+<div class="more-works-container">
+  <button class="more-works-btn btn btn--inverse" onclick="toggleMoreWorks()" title="View More Works from {{ lab_name }}">
+    <i class="fas fa-flask"></i>
+    {{ lab_name }} Research
+    <i class="fas fa-chevron-down dropdown-arrow"></i>
+  </button>
+  <div class="more-works-dropdown" id="moreWorksDropdown">
+    <div class="dropdown-header">
+      <h4>More from {{ lab_name }}</h4>
+      <button class="close-btn" onclick="toggleMoreWorks()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="works-list">
+      {% for link in navigation %}
+      <a class="work-item" href="{{ link.url | relative_url }}" {% if link.description %} title="{{ link.description }}"
+        {% endif %} target="{{ link.target | default: "_blank" }}">
+        <div class="work-info">
+          <h5>{{ link.title }}</h5>
+          {% if link.description %}<p>{{ link.description }}</p>{% endif %}
+          {% if link.venue %}<span class="work-venue">{{ link.venue }}</span>{% endif %}
+        </div>
+        <i class="fas fa-external-link-alt"></i>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- End More Works -->
