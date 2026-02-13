@@ -14,8 +14,8 @@
 <body
     class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}"
     dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}">
-    {% include_cached skip-links.html %}
-    {% include_cached more_works.html %}
+    {% include skip-links.html %}
+    {% include more_works.html %}
 
     <div class="initial-content">
         <!-- Scroll to Top Button -->
@@ -40,7 +40,7 @@
 
     {% if site.search == true %}
     <div class="search-content">
-        {% include_cached search/search_form.html %}
+        {% include search/search_form.html %}
     </div>
     {% endif %}
 
@@ -52,7 +52,7 @@
                     target="_blank">Academic Project Page Template</a> which was adopted from the <a
                     href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             </p>
-            {% include_cached footer.html %}
+            {% include footer.html %}
         </footer>
     </div>
 
