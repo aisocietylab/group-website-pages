@@ -395,6 +395,7 @@ table {
     text-align: justify;
     font-size: $type-size-4;
     color: $muted-text-color;
+    font-weight: 500;
   }
 }
 
@@ -675,6 +676,10 @@ code {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
 }
 
 /* Scroll to Top Button */
