@@ -7,7 +7,7 @@ search: false
    My custom skin
    ========================================================================== */
 
-$doc-font-size: 12px;
+//$doc-font-size: 12px;
 $small: 320px;
 $medium: 600px;
 $medium-wide: 768px;
@@ -392,8 +392,8 @@ table {
   transition: $intro-transition;
 
   p {
-    text-align: center;
-    font-size: 1rem;
+    text-align: justify;
+    font-size: $type-size-4;
     color: $muted-text-color;
   }
 }
@@ -410,7 +410,7 @@ table {
   }
 
   figcaption {
-    font-size: $type-size-4;
+    font-size: $type-size-5;
     margin-top: 1em;
   }
 }
