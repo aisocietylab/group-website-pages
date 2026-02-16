@@ -393,7 +393,7 @@ table {
 
   p {
     text-align: justify;
-    font-size: $type-size-4;
+    font-size: $type-size-5;
     color: $muted-text-color;
     font-weight: 500;
   }
@@ -531,7 +531,8 @@ table {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 0.5rem 0;
+  padding: 0.2rem;
+  margin: 0.5rem 0;
   border-radius: $border-radius-round;
   text-decoration: none;
   color: $primary-color !important;
@@ -574,7 +575,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: $inter;
   color: $text-color;
   // line-height: 1.6;
   //font-size: 16px;
@@ -730,6 +731,10 @@ code {
     text-decoration: none;
   }
 
+  .scroll-to-top {
+    bottom: 5rem;
+  }
+
   .more-works-container {
     bottom: 2rem;
     right: 1rem;
@@ -760,6 +765,10 @@ code {
 }
 
 @media screen and (max-width: 480px) {
+  .scroll-to-top {
+    bottom: 5rem;
+  }
+
   .more-works-container {
     position: fixed;
     bottom: 2rem;
